@@ -8,15 +8,14 @@ class Screen extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            num: props.num
+            num: 0
         }
-        console.log(props)
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         const num = nextProps.show.toString().replace(/,/g, "")
-        this.setState({num: num});
+        console.log(num)
+        this.setState({num: num || 0});
     }
 
     render() {

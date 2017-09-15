@@ -3,13 +3,14 @@
  */
 import React, {Component} from 'react'
 import Screen from '../component/Screen'
+import DataScreen from '../component/DataScreen'
 import Button from '../component/Button'
 
 class CalculatorPanel extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            result: 123,
+            result: '',
             num: []
         }
     }
@@ -18,11 +19,18 @@ class CalculatorPanel extends Component {
         this.setState({num: num})
     }
 
+    showData(result) {
+        console.log(result)
+        this.setState({result: result})
+    }
+
     render() {
         return (
             <div>
+                <DataScreen showData={this.state.result}/>
                 <Screen show={this.state.num}/>
-                <Button changeNum={this.getNum.bind(this)}/>
+                <Button showScreen={this.showData.bind(this)} changeNum={this.getNum.bind(this)}
+                />
             </div>
         )
     }
