@@ -7,14 +7,12 @@ import '../css/index.css'
 class DataScreen extends Component {
     constructor(props) {
         super(props)
-        console.log(props)
         this.state = {
             result: 0
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps)
         this.setState({result: nextProps.showData})
     }
 

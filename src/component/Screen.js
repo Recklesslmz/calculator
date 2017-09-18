@@ -14,7 +14,6 @@ class Screen extends Component {
 
     componentWillReceiveProps(nextProps) {
         const num = nextProps.show.toString().replace(/,/g, "")
-        console.log(num)
         this.setState({num: num || 0});
     }
 

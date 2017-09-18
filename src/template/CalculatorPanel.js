@@ -20,7 +20,6 @@ class CalculatorPanel extends Component {
     }
 
     showData(result) {
-        console.log(result)
         this.setState({result: result})
     }
 

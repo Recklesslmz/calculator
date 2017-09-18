@@ -9,24 +9,36 @@ class Button extends Component {
         this.state = {
             num: [],
             symbolNum: [],
-            result: ''
+            result: '',
+            screenLength: [],
+            canNotPrintPoint: true
         }
     }
 
     buttonNum(num, type) {
         if (type === 1 || type === 2) {
+            if (!this.state.canNotPrintPoint && num === '.') return
+            if (type === 2) {
+                this.setState({canNotPrintPoint: true})
+            }
             let numArray = this.state.num
             numArray.push(num)
+            for (let i = 0; i < numArray.length; i++) {
+                if (numArray[numArray.length - 1] === '.') return this.setState({canNotPrintPoint: false})
+            }
             this.setState({num: numArray})
         }
         if (type === 3) {
-            this.props.showScreen(eval(this.state.num.toString().replace(/,/g, "")))
+            const num2 = this.state.num.toString().replace(/,/g, "").replace(/×/g, '*').replace(/÷/g, '/')
+            this.props.showScreen(eval(num2))
         }
         if (type === 4) {
+            if (this.state.num.length > 1) return this.state.num.length = 0
             this.state.num.pop()
         }
         this.props.changeNum(this.state.num)
     }
+
 
     render() {
         const keyBoards = [
@@ -43,9 +55,11 @@ class Button extends Component {
                                 onClick={() => this.buttonNum(item.num, item.type) }> { item.num } </div>
                     break
                 case 2:
-                case 4:
                     return <div className="buttons buttonsSymbol" key={ i }
                                 onClick={() => this.buttonNum(item.num, item.type) }> { item.num } </div>
+                case 4:
+                    return <div className="buttons buttonsSymbol" key={ i }
+                                onClick={() => this.buttonNum(item.num, item.type) }> { this.state.num.length > 1 ? 'AC' : item.num } </div>
                     break
                 case 3:
                     return <div className="buttons buttonsEqual" key={ i }
