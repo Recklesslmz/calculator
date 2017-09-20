@@ -19,7 +19,7 @@ class DataScreen extends Component {
     render() {
         return (
             <div>
-                <input className="screen" value={this.state.result} type="text"/>
+                <input className="screen dataScreen" value={this.state.result} type="text"/>
             </div>
         )
     }

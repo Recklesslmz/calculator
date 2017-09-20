@@ -5,7 +5,7 @@ import CalculatorPanel from '../template/CalculatorPanel'
 
 const routes = [
     {
-        path: '/CalculatorPanel',
+        path: '/',
         component: CalculatorPanel
     }
 ]
