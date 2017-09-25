@@ -3,6 +3,7 @@
  */
 import React, {Component} from 'react'
 import {isSymbol} from '../common/common'
+import classNames from 'classnames'
 import '../css/index.css'
 class Button extends Component {
     constructor(props) {
@@ -13,11 +14,13 @@ class Button extends Component {
             result: '',
             screenLength: [],
             isRepeatSymbol: false,//判断是否重复输入运算符号
-            canNotPrintPoint: true //判断是否连续输入小数点
+            canNotPrintPoint: true,//判断是否连续输入小数点
+            currentIndex: ''
         }
     }
 
-    buttonNum(num, type) {
+    buttonNum(num, type, index) {
+        this.setState({currentIndex: index})
         if (type === 1) {
             this.setState({isRepeatSymbol: false})
             let numArray = this.state.num
@@ -25,13 +28,9 @@ class Button extends Component {
             this.setState({num: numArray})
         }
         if (type === 2) {
-            if (!isSymbol(num) && this.state.num.length === 0) return
-            if (!this.state.canNotPrintPoint && num === '.') return
-            if (this.state.isRepeatSymbol) return
-            if (num !== '.') {
-                this.setState({canNotPrintPoint: true})
+            if (typeof (this.state.num[this.state.num.length - 1]) !== 'number' && (num !== '(' || num === ')')) {
+                this.state.num.splice(this.state.num.length - 1)
             }
-            this.setState({isRepeatSymbol: true})
             let numArray = this.state.num
             numArray.push(num)
             for (let i = 0; i < numArray.length; i++) {
@@ -60,23 +59,12 @@ class Button extends Component {
             {num: 0, type: 1}, {num: '.', type: 2}, {num: '=', type: 3}, {num: '+', type: 2}
         ]
         const keyList = keyBoards.map((item, i) => {
-            switch (item.type) {
-                case 1:
-                    return <div className="buttons" key={ i }
-                                onClick={() => this.buttonNum(item.num, item.type) }> { item.num } </div>
-                    break
-                case 2:
-                    return <div className="buttons buttonsSymbol" key={ i }
-                                onClick={() => this.buttonNum(item.num, item.type) }> { item.num } </div>
-                case 4:
-                    return <div className="buttons buttonsSymbol" key={ i }
-                                onClick={() => this.buttonNum(item.num, item.type) }> { this.state.num.length > 1 ? 'AC' : item.num } </div>
-                    break
-                case 3:
-                    return <div className="buttons buttonsEqual" key={ i }
-                                onClick={() => this.buttonNum(item.num, item.type) }> { item.num } </div>
-                    break
-            }
+            return <div className={ classNames({
+                buttons: true,
+                buttonsEqual: item.type === 3,
+                buttonsSymbol: item.type === 2 || item.type === 4,
+                rippleEffect: i === this.state.currentIndex
+            }) } key={ i } onClick={() => this.buttonNum(item.num, item.type, i) }> { item.num } </div>
         })
         return ( <div > { keyList } </div>
         )

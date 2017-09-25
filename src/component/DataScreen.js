@@ -7,19 +7,12 @@ import '../css/index.css'
 class DataScreen extends Component {
     constructor(props) {
         super(props)
-        this.state = {
-            result: 0
-        }
-    }
-
-    componentWillReceiveProps(nextProps) {
-        this.setState({result: nextProps.showData})
     }
 
     render() {
         return (
             <div>
-                <input className="screen dataScreen" value={this.state.result} type="text"/>
+                <input className="screen dataScreen" value={this.props.showData || 0} type="text"/>
             </div>
         )
     }

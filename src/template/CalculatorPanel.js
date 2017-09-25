@@ -5,7 +5,6 @@ import React, {Component} from 'react'
 import Screen from '../component/Screen'
 import DataScreen from '../component/DataScreen'
 import Button from '../component/Button'
-
 class CalculatorPanel extends Component {
     constructor(props) {
         super(props)

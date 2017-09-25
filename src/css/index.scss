@@ -27,10 +27,10 @@
   border: 1px solid #dedede;
   margin-left: 1%;
   border-radius: 2px;
+  transform: scale(1);
 }
 
 .buttons:hover {
-  border: 1px solid #aaa;
   cursor: pointer;
 }
 
@@ -42,3 +42,16 @@
 .buttonsSymbol {
   background: #d3d3d3;
 }
+
+.rippleEffect {
+  -webkit-animation: rippleEffect  .5s ease-out 0s 1 alternate forwards;
+  animation: rippleEffect  .5s ease-out 0s 1 alternate forwards;
+}
+
+//@keyframes rippleEffect {
+//  100% {
+//    -webkit-transform: scale(3);
+//    transform: scale(3);
+//    opacity: 0.5;
+//  }
+//}
