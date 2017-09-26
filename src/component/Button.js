@@ -28,6 +28,7 @@ class Button extends Component {
             this.setState({num: numArray})
         }
         if (type === 2) {
+            if (!this.state.canNotPrintPoint && num === '.') return
             if (this.state.num.length === 0 && num !== '(' && num !== ')') return
             if (typeof (this.state.num[this.state.num.length - 1]) !== 'number' && num !== '(' && num !== ')') {
                 if (this.state.num[this.state.num.length - 1] !== ')') {
