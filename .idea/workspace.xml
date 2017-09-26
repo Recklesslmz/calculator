@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a33cebc3-7e3b-4436-a3f9-0c0116b42339" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/component/Button.js" afterPath="$PROJECT_DIR$/src/component/Button.js" />
-    </list>
+    <list default="true" id="a33cebc3-7e3b-4436-a3f9-0c0116b42339" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -23,7 +20,7 @@
         <entry file="file://$PROJECT_DIR$/src/component/Button.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="288">
-              <caret line="32" column="76" lean-forward="false" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+              <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
                 <element signature="e#43#81#0" expanded="true" />
               </folding>
@@ -415,12 +412,12 @@
       <workItem from="1505902023055" duration="31000" />
       <workItem from="1506304221910" duration="46000" />
       <workItem from="1506304344921" duration="12958000" />
-      <workItem from="1506408502247" duration="5909000" />
+      <workItem from="1506408502247" duration="5943000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78974000" />
+    <option name="totallyTimeSpent" value="79008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="273" y="47" width="1440" height="813" extended-state="0" />
@@ -810,7 +807,7 @@
     <entry file="file://$PROJECT_DIR$/src/component/Button.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="288">
-          <caret line="32" column="76" lean-forward="false" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+          <caret line="32" column="47" lean-forward="false" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
           <folding>
             <element signature="e#43#81#0" expanded="true" />
           </folding>
