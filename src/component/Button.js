@@ -30,7 +30,6 @@ class Button extends Component {
         if (type === 2) {
             if (this.state.num.length === 0 && num !== '(' && num !== ')') return
             if (typeof (this.state.num[this.state.num.length - 1]) !== 'number' && num !== '(' && num !== ')') {
-                console.log(this.state.num)
                 if (this.state.num[this.state.num.length - 1] !== ')') {
                     this.state.num.splice(this.state.num.length - 1)
                 }
@@ -43,8 +42,15 @@ class Button extends Component {
             this.setState({num: numArray})
         }
         if (type === 3) {
-            const num2 = this.state.num.toString().replace(/,/g, "").replace(/×/g, '*').replace(/÷/g, '/')
-            this.props.showScreen(eval(num2))
+            if (typeof this.state.num[this.state.num.length - 1] !== 'number') {
+                let spliceArray = this.state.num
+                const num2 = spliceArray.splice(0, this.state.num.length - 1).toString().replace(/,/g, "").replace(/×/g, '*').replace(/÷/g, '/')
+                this.state.num = num2
+                this.props.showScreen(eval(num2))
+            } else {
+                const num2 = this.state.num.toString().replace(/,/g, "").replace(/×/g, '*').replace(/÷/g, '/')
+                this.props.showScreen(eval(num2))
+            }
         }
         if (type === 4) {
             if (this.state.num.length > 1) return this.props.changeNum(this.state.num.length = 0)
